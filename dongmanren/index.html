@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="动漫人-专注于二次元人物设计、动漫角色百科、声优档案及经典动漫人物深度解析的综合性动漫人物平台。">
+    <meta name="keywords" content="动漫人,动漫人物,动漫角色,声优,二次元人物,动漫百科">
+    <title>动漫人-二次元人物深度解析与声优档案库</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-secondary: #636e72;
+            --border-radius: 12px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1rem;
+            color: var(--text-main);
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 1.2em;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #dfe6e9;
+            outline: none;
+            width: 200px;
+            transition: width 0.3s;
+        }
+
+        .search-box input:focus {
+            width: 250px;
+            border-color: var(--primary-color);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tag:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        /* Content Grid */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Character Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: 1.2rem;
+        }
+
+        .card-category {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            padding: 1rem 1.2rem;
+            border-top: 1px solid #f1f2f6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f1f2f6;
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: #dfe6e9;
+            color: var(--text-secondary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            margin-right: 0.8rem;
+            font-weight: bold;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background: var(--accent-color); color: white; }
+        .rank-list li:nth-child(2) .rank-num { background: #fab1a0; color: white; }
+        .rank-list li:nth-child(3) .rank-num { background: #ffeaa7; color: #d35400; }
+
+        .rank-name {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Spotlight Section */
+        .spotlight {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .spotlight-img {
+            width: 40%;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .spotlight-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .spotlight-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .spotlight-desc {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            border: 1px solid #f1f2f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding-left: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d3436;
+            color: #b2bec3;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #636e72;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .spotlight {
+                flex-direction: column;
+                text-align: center;
+            }
+            .spotlight-meta {
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path>
+                <path d="M12 6v6l4 2"></path>
+            </svg>
+            <span>动漫人</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">人物档案</a></li>
+                <li><a href="#">声优库</a></li>
+                <li><a href="#">新番角色</a></li>
+                <li><a href="#">资讯动态</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索角色或声优...">
+            <button>🔍</button>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>发现每一个精彩的动漫灵魂</h1>
+        <p>这里是动漫人的聚集地，收录超过5000位经典与新兴动漫角色的深度解析、声优档案及人物关系图。</p>
+        <div class="hero-tags">
+            <span class="tag">#热血少年</span>
+            <span class="tag">#治愈系</span>
+            <span class="tag">#暗黑系</span>
+            <span class="tag">#高冷女神</span>
+            <span class="tag">#搞笑担当</span>
+            <span class="tag">#反派魅力</span>
+        </div>
+    </div>
+</section>
+
+<main class="container">
+    
+    <!-- Spotlight Feature -->
+    <section class="spotlight">
+        <img src="https://picsum.photos/seed/animehero/600/400" alt="本周焦点人物" class="spotlight-img">
+        <div class="spotlight-content">
+            <span style="color:var(--accent-color); font-weight:bold; font-size:0.9rem;">EDITOR'S CHOICE</span>
+            <h2>《鬼灭之刃》· 炼狱杏寿郎：燃烧的意志与极致的守护</h2>
+            <div class="spotlight-meta">
+                <span>🔥 热度: 98.5w</span>
+                <span>📺 动画: 鬼灭之刃 游郭篇</span>
+                <span>🎤 声优: 铃村健一</span>
+            </div>
+            <p class="spotlight-desc">
+                炼狱杏寿郎不仅是柱中实力最强的炎柱，更是无数观众心中的精神支柱。他拥有如同太阳般炽热的光辉，无论面对何种强敌，始终将队友的安全置于首位。本文将深度解析炼狱家独特的修行方式及其在故事中起到的关键作用。
+            </p>
+            <a href="#" class="btn-link" style="border-bottom: 2px solid var(--primary-color);">阅读完整人物档案 &rarr;</a>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <div class="main-content">
+        <section>
+            <h3 class="section-title">热门角色推荐</h3>
+            <div class="card-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/anime1/400/500" alt="角色头像" class="card-image">
+                    <div class="card-body">
+                        <span class="card-category">热血/战斗</span>
+                        <h4 class="card-title">蒙奇·D·路飞</h4>
+                        <p class="card-desc">草帽海贼团船长，梦想成为海贼王。拥有橡胶果实能力，性格乐观、自由，重视伙伴。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>《海贼王》</span>
+                        <a href="#" class="btn-link">详情</a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/anime2/400/500" alt="角色头像" class="card-image">
+                    <div class="card-body">
+                        <span class="card-category">治愈/日常</span>
+                        <h4 class="card-title">雪之下雪乃</h4>
+                        <p class="card-desc">比企谷八幡的青梅竹马，现役学生会会长。外表高冷完美，内心却有着不为人知的温柔。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>《春物》</span>
+                        <a href="#" class="btn-link">详情</a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/anime3/400/500" alt="角色头像" class="card-image">
+                    <div class="card-body">
+                        <span class="card-category">悬疑/推理</span>
+                        <h4 class="card-title">利威尔兵长</h4>
+                        <p class="card-desc">调查兵团最强的士兵，拥有极高的战斗技巧和敏锐的洞察力。性格沉稳寡言，珍视生命。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>《进击的巨人》</span>
+                        <a href="#" class="btn-link">详情</a>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/anime4/400/500" alt="角色头像" class="card-image">
+                    <div class="card-body">
+                        <span class="card-category">恋爱/校园</span>
+                        <h4 class="card-title">御坂美琴</h4>
+                        <p class="card-desc">超电磁炮，学园都市最强Level 5之一。性格直率开朗，虽然有些小恶魔属性，但非常讲义气。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>《某科学的超电磁炮》</span>
+                        <a href="#" class="btn-link">详情</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-widget">
+                <h4 class="widget-title">声优人气榜</h4>
+                <ul class="rank-list">
+                    <li>
+                        <span class="rank-num">1</span>
+                        <span class="rank-name">花江夏树</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">2</span>
+                        <span class="rank-name">樱井孝宏</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">3</span>
+                        <span class="rank-name">佐藤利奈</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">4</span>
+                        <span class="rank-name">诹访部顺一</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">5</span>
+                        <span class="rank-name">井上和彦</span>
+                    </li>
+                </ul>
+                <div style="text-align:center; margin-top:1rem;">
+                    <a href="#" class="btn-link" style="font-size:0.9rem;">查看完整榜单</a>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h4 class="widget-title">分类导航</h4>
+                <ul style="line-height:2;">
+                    <li><a href="#">🧬 热血少年漫</a></li>
+                    <li><a href="#">🐱 治愈系日常</a></li>
+                    <li><a href="#">🕵️ 灵异推理</a></li>
+                    <li><a href="#">⚔️ 机甲战斗</a></li>
+                    <li><a href="#">🌹 虐恋情感</a></li>
+                    <li><a href="#">👹 恐怖惊悚</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h3 class="section-title">常见问题</h3>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">❓ 如何添加新角色档案？</div>
+                    <div class="faq-answer">目前“动漫人”平台暂未开放用户投稿功能。我们主要收录官方设定集及主流媒体中确认的动漫角色信息。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">❓ 声优信息准确吗？</div>
+                    <div class="faq-answer">我们严格参考官方配音表及日本官方声优事务所发布的资料，确保声优信息的准确性与时效性。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">❓ 支持哪些动漫作品？</div>
+                    <div class="faq-answer">我们覆盖了从昭和时代经典到最新2024年春季番剧的广泛作品，包括日漫、国漫及部分优秀海外作品。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">❓ 如何联系编辑团队？</div>
+                    <div class="faq-answer">您可以通过页面底部的“联系我们”表单发送邮件，或关注我们的官方社交媒体账号获取最新动态。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于动漫人</h4>
+                <p style="font-size:0.9rem; line-height:1.6;">
+                    动漫人致力于构建最完善的二次元人物数据库。无论你是寻找童年回忆，还是探索新番中的有趣灵魂，这里都有你想要的信息。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">网站地图</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门分类</h4>
+                <ul>
+                    <li><a href="#">少年漫</a></li>
+                    <li><a href="#">少女漫</a></li>
+                    <li><a href="#">剧场版</a></li>
+                    <li><a href="#">OVA</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>订阅更新</h4>
+                <p style="font-size:0.9rem; margin-bottom:0.5rem;">获取最新角色解析推送</p>
+                <input type="email" placeholder="输入您的邮箱" style="width:100%; padding:0.5rem; border-radius:4px; border:none; outline:none;">
+                <button style="width:100%; padding:0.5rem; background:var(--primary-color); color:white; border:none; border-radius:4px; margin-top:0.5rem; cursor:pointer;">订阅</button>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 动漫人. All Rights Reserved. 本站内容仅供学习交流使用，版权归原作者所有。
+        </div>
+    </div>
+</footer>
+
+</body>
+                      </html>
