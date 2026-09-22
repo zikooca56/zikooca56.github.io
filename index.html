@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="慰安妇集中营专题 - 全面记录二战期间日军设立慰安所的历史真相、幸存者证言、历史研究资料及相关历史文献。致力于还原历史、缅怀逝者、传递和平与正义。">
+    <meta name="keywords" content="慰安妇集中营,二战历史,慰安妇制度,历史真相,和平教育">
+    <title>慰安妇集中营-历史真相与和平教育专题</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #f4f1ea;
+            --paper-color: #ffffff;
+            --text-primary: #2c2c2c;
+            --text-secondary: #5a5a5a;
+            --accent-color: #8b2e2e;
+            --accent-light: #f0e6e6;
+            --border-color: #e0dcd5;
+            --spacing-unit: 1rem;
+            --container-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--paper-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 6rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%), url('https://picsum.photos/seed/history/1920/600') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #e0e0e0;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 36px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #6d2424;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-right: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* History Cards */
+        .history-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .history-item {
+            background: var(--paper-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .history-date {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            min-width: 80px;
+        }
+
+        .history-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .history-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--paper-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .info-list li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .info-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Survivor Stories */
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .story-card {
+            background: var(--paper-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .story-body {
+            padding: 1.5rem;
+        }
+
+        .story-body h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-body p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Resources Table */
+        .resource-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--paper-color);
+            font-size: 0.95rem;
+        }
+
+        .resource-table th, .resource-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .resource-table th {
+            background-color: #fafafa;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .resource-table tr:hover {
+            background-color: #fafafa;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .history-item {
+                flex-direction: column;
+            }
+
+            .history-date {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <span>◆</span> 历史记忆
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#intro" class="active">历史背景</a></li>
+                <li><a href="#stories">幸存者证言</a></li>
+                <li><a href="#resources">历史文献</a></li>
+                <li><a href="#education">和平教育</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-content">
+        <h1>铭记历史，珍爱和平</h1>
+        <p>致力于还原二战期间“慰安妇”制度的残酷真相，记录幸存者的苦难经历，推动历史研究与和平教育。</p>
+        <a href="#intro" class="cta-button">了解历史真相</a>
+    </div>
+</section>
+
+<main class="container">
+    
+    <div class="main-grid">
+        <!-- Left Column -->
+        <div class="content-col">
+            
+            <section id="intro">
+                <div class="section-header">
+                    <h2 class="section-title">历史背景</h2>
+                    <span class="section-subtitle">慰安妇制度与二战历史</span>
+                </div>
+                <div class="history-list">
+                    <article class="history-item">
+                        <div class="history-date">1931年</div>
+                        <div class="history-content">
+                            <h3>制度建立与扩张</h3>
+                            <p>日军侵华初期，随军慰安所开始出现。随着战争规模扩大，慰安妇制度从随军体系演变为有组织的征用体系，范围波及朝鲜半岛、中国及东南亚地区。</p>
+                        </div>
+                    </article>
+                    <article class="history-item">
+                        <div class="history-date">1937年</div>
+                        <div class="history-content">
+                            <h3>南京大屠杀与性暴力</h3>
+                            <p>在南京大屠杀期间，日军大规模设立临时慰安所，对平民及战俘实施有组织的性暴力，这是慰安妇制度在侵华战争中最黑暗的时期。</p>
+                        </div>
+                    </article>
+                    <article class="history-item">
+                        <div class="history-date">1942年</div>
+                        <div class="history-content">
+                            <h3>东南亚战场的建立</h3>
+                            <p>随着日军占领东南亚，慰安所网络向殖民地扩张。大量当地女性被强制征用，遭受非人待遇，成为战争暴行的直接受害者。</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="stories">
+                <div class="section-header">
+                    <h2 class="section-title">幸存者证言</h2>
+                    <span class="section-subtitle">苦难与坚韧</span>
+                </div>
+                <div class="story-grid">
+                    <div class="story-card">
+                        <div class="story-img" style="background-image: url('https://picsum.photos/seed/grandma1/400/300');"></div>
+                        <div class="story-body">
+                            <h3>李奶奶的回忆</h3>
+                            <p>“那不是人过的日子，每一天都像在地狱里煎熬。我们被关在笼子里，像牲口一样被对待。”</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-img" style="background-image: url('https://picsum.photos/seed/grandma2/400/300');"></div>
+                        <div class="story-body">
+                            <h3>走出阴霾</h3>
+                            <p>“我活下来了，但我的一生都被毁了。我不希望我的孩子，也不希望你们的孩子再经历这种痛苦。”</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-img" style="background-image: url('https://picsum.photos/seed/grandma3/400/300');"></div>
+                        <div class="story-body">
+                            <h3>最后的呼吁</h3>
+                            <p>“我最大的愿望就是看到加害者道歉，看到真相被记录下来。如果我不说了，这段历史可能就真的没人知道了。”</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="resources">
+                <div class="section-header">
+                    <h2 class="section-title">历史文献与研究</h2>
+                    <span class="section-subtitle">官方档案与学术资料</span>
+                </div>
+                <table class="resource-table">
+                    <thead>
+                        <tr>
+                            <th>文献名称</th>
+                            <th>类型</th>
+                            <th>简介</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#">《南京战·寻找被占领的日常生活》</a></td>
+                            <td>书籍</td>
+                            <td>记录了南京大屠杀期间日军对平民实施性暴力的详细档案与调查。</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">《中国“慰安妇”制度受害幸存者调查报告》</a></td>
+                            <td>调查报告</td>
+                            <td>关于中国境内幸存者现状及制度受害情况的权威统计数据。</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">日本国立国会图书馆亚洲历史资料中心</a></td>
+                            <td>档案</td>
+                            <td>收录了大量关于二战时期日军内部文件及军事记录的原始资料。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </div>
+
+        <!-- Right Column -->
+        <aside>
+            <div class="info-card">
+                <h3>核心事实</h3>
+                <ul class="info-list">
+                    <li><strong>受害者人数：</strong>据不完全统计，受害者超过20万人。</li>
+                    <li><strong>涉及地区：</strong>中国、朝鲜半岛、日本、菲律宾、印尼等。</li>
+                    <li><strong>主要来源：</strong>通过诱骗、强迫、招募等方式。</li>
+                    <li><strong>现状：</strong>幸存者人数逐年减少，平均年龄超过90岁。</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>相关法律与诉讼</h3>
+                <ul class="info-list">
+                    <li>日本政府多次否认国家责任，拒绝正式道歉和赔偿。</li>
+                    <li>受害者及其家属提起多次海外诉讼，旨在追索公道。</li>
+                    <li>韩国及中国民间团体持续推动“谢罪与赔偿”运动。</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>如何提供帮助</h3>
+                <ul class="info-list">
+                    <li>关注幸存者晚年生活状况，提供必要援助。</li>
+                    <li>支持历史记录与和平教育项目。</li>
+                    <li>传播历史真相，反对历史虚无主义。</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <div class="quote-section">
+        <div class="container">
+            <p class="quote-text">“忘记历史就意味着背叛，否定罪责就意味着重犯。”</p>
+            <p class="quote-author">—— 弗拉基米尔·伊里奇·列宁</p>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>历史记忆</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6;">
+                    我们致力于保存二战期间“慰安妇”制度的珍贵历史资料，记录幸存者的证言，推动国际社会正视历史真相，维护人类尊严。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#intro">历史背景</a></li>
+                    <li><a href="#stories">幸存者故事</a></li>
+                    <li><a href="#resources">历史文献</a></li>
+                    <li><a href="#education">和平教育</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关资源</h4>
+                <ul>
+                    <li><a href="#">联合国人权报告</a></li>
+                    <li><a href="#">亚洲妇女人权中心</a></li>
+                    <li><a href="#">日本和平博物馆</a></li>
+                    <li><a href="#">受害者权利保护法</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 历史记忆纪念馆. 保留所有权利. 本站内容仅供历史研究与教育使用。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+      </html>
